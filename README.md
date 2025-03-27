@@ -13,7 +13,7 @@
 <h5 align="left">I cleaned each table, so there are no duplicates in the primary key column and don't have errors and outliers for each table. And I found the order table is a fact table and has a foreign key to connect another dimension table. So I rename the table to FactOrders, DimProducts, DimRetailers, and DimReturns.</h5>
 <h5 align="left">Now the data set is clean and ready for analysis and visualization. I closed the power query to go to the next step.</h5>
 
-<h5 align="left">In to next step, I created a dimension date table To use the Time Intelligence function in DAX, Display data continuously even if the Fact Table does not contain data for every day, and Easier to set the format of day, month, quarter, year</h5>
+<h5 align="left">In to next step, I created a dimension date table to use the time intelligence function in DAX, display data continuously even if the fact table does not contain data for every day, and easier to set the format of day, month, quarter, year</h5>
 <img width="25%" height="auto" src="./2.jpg" />
 <h5 align="left">And created the relationship between the table and the data model.</h5>
 <img width="50%" height="auto" src="./3.jpg" />
