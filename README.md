@@ -32,8 +32,8 @@
 <h3 align="left">Next is the second page "Product"</h3>
 <img width="100%" height="auto" src="./6.jpg" />
 <h5 align="left">This page has details about the products that Threads Ltd. company sells.</h5>
-<h5 align="left">You can see total sales, units sold, cost, profit, profit margin, and YoY% Change by category and color for the product.</h5>
-<h5 align="left">You can filter by category of interest by clicking on category and color on the left side of this page.</h5>
+<h5 align="left">You can see total sales, units sold, cost, profit, profit margin, and YoY% Change.</h5>
+<h5 align="left">You can filter by category of interest by clicking on the category and color on the left side of this page or clicking on the visual on this page.</h5>
 
 
 <h3 align="left">And this is the final page "Channel"</h3>
