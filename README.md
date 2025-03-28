@@ -16,7 +16,7 @@
 <h5 align="left">In to next step, I created a dimension date table to use the time intelligence function in DAX, display data continuously even if the fact table does not contain data for every day, and easier to set the format of day, month, quarter, year</h5>
 <img width="25%" height="auto" src="./2.jpg" />
 <h5 align="left">And created the relationship between the table and the data model.</h5>
-<img width="50%" height="auto" src="./3.jpg" />
+<img width="75%" height="auto" src="./3.jpg" />
 
 <h3 align="left">2. Time to create the report and visualization.</h3>
 <h3 align="left">Here this is my result</h3>
