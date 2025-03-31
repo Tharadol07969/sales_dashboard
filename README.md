@@ -11,7 +11,7 @@ This report focuses on Threads Ltd (alias), a company that operates across the i
 ### Data Preparation
 1. **Loading and Cleaning Data**
    - Loaded the dataset into Power BI Desktop.
-   - Inspected and cleaned each table to remove duplicates and errors. Ensured there were no outliers in the primary key columns.
+   - Inspected and cleaned each table to remove duplicates and errors. Ensured there were no outliers in the table.
    - Identified the Orders Table as the fact table.
 
    ![Data Cleaning](./1.jpg)
