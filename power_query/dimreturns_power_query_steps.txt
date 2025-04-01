@@ -1,0 +1,8 @@
+let
+    Source = Excel.Workbook(File.Contents("D:\งาน\Datacamp\Learn\Power BI\3.Data Visualization in Power BI\Datasets\Returns.xlsx"), null, true),
+    Returns_Sheet = Source{[Item="Returns",Kind="Sheet"]}[Data],
+    #"Promoted Headers" = Table.PromoteHeaders(Returns_Sheet, [PromoteAllScalars=true]),
+    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"Order_ID", Int64.Type}, {"Return_year", Int64.Type}, {"Return_Month", Int64.Type}, {"Return_day", Int64.Type}, {"Hour", Int64.Type}, {"Minute", Int64.Type}, {"Second", Int64.Type}, {"Return_Date", type date}}),
+    #"Removed Columns" = Table.RemoveColumns(#"Changed Type",{"Return_year", "Return_Month", "Return_day", "Hour", "Minute", "Second"})
+in
+    #"Removed Columns"
