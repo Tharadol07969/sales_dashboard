@@ -1,8 +1,0 @@
-let
-    Source = Excel.Workbook(File.Contents("D:\งาน\Datacamp\Learn\Power BI\3.Data Visualization in Power BI\Datasets\Products.xlsx"), null, true),
-    Products_Sheet = Source{[Item="Products",Kind="Sheet"]}[Data],
-    #"Changed Type" = Table.TransformColumnTypes(Products_Sheet,{{"Column1", type text}, {"Column2", type text}, {"Column3", type text}, {"Column4", type text}, {"Column5", type text}, {"Column6", type text}, {"Column7", type text}}),
-    #"Promoted Headers" = Table.PromoteHeaders(#"Changed Type", [PromoteAllScalars=true]),
-    #"Changed Type1" = Table.TransformColumnTypes(#"Promoted Headers",{{"Product_SKU", type text}, {"Product_Full_Description", type text}, {"Product_Gender", type text}, {"Product_Category", type text}, {"Product_Name", type text}, {"Product_Size", type text}, {"Product_Color", type text}})
-in
-    #"Changed Type1"

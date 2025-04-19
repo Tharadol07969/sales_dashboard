@@ -1,9 +1,0 @@
-let
-    Source = Excel.Workbook(File.Contents("D:\งาน\Datacamp\Learn\Power BI\3.Data Visualization in Power BI\Datasets\Orders.xlsx"), null, true),
-    Orders_Sheet = Source{[Item="Orders",Kind="Sheet"]}[Data],
-    #"Promoted Headers" = Table.PromoteHeaders(Orders_Sheet, [PromoteAllScalars=true]),
-    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"Order_ID", Int64.Type}, {"Order_Date", type date}, {"Order_YearMonth", Int64.Type}, {"Retailer_ID", Int64.Type}, {"Product_SKU", type text}, {"Product_Price", Int64.Type}, {"Product_Cost", type number}, {" Order_Quantity ", Int64.Type}, {"Sales_Amount", Int64.Type}, {"Cost_of_Goods_Sold", type number}, {"Product_Discount", type number}, {"Profit", type number}, {"Profit_Margin", type number}}),
-    #"Removed Columns" = Table.RemoveColumns(#"Changed Type",{"Order_YearMonth"}),
-    #"Renamed Columns" = Table.RenameColumns(#"Removed Columns",{{" Order_Quantity ", "Order_Quantity"}})
-in
-    #"Renamed Columns"
