@@ -1,6 +1,6 @@
-# 📊 Threads Ltd - Sales Report
+# 📊 Threads Ltd – Sales Report
 
-This report provides a **comprehensive analysis** of the sales data for **Threads Ltd**, a nationwide retail network operating through various retailers and chain stores. Leveraging **Power BI**, this analysis uncovers key sales trends, supports strategic decision-making, and drives improved profitability and operational efficiency.
+This **Power BI** dashboard delivers an end‑to‑end analysis of **Threads Ltd**’s sales performance across its nationwide retail network. By combining data from orders, products, returns, and retailer tables, the report uncovers sales patterns, channel efficiencies, and profitability levers—empowering stakeholders to make data‑driven decisions.
 
 ---
 
@@ -8,152 +8,145 @@ This report provides a **comprehensive analysis** of the sales data for **Thread
 1. [Introduction](#introduction)  
 2. [Dataset Overview](#dataset-overview)  
 3. [Data Preparation](#data-preparation)  
-   - [Loading and Cleaning Data](#loading-and-cleaning-data)  
-   - [Creating a Dimension Date Table](#creating-a-dimension-date-table)  
+   - [Loading & Cleaning Data](#loading--cleaning-data)  
+   - [Dimension Date Table](#dimension-date-table)  
    - [Data Model Relationships](#data-model-relationships)  
-4. [Report and Visualization](#report-and-visualization)  
+4. [Report & Visualization](#report--visualization)  
    - [Overview Page](#overview-page)  
    - [Product Page](#product-page)  
    - [Channel Page](#channel-page)  
 5. [Key Findings & Insights](#key-findings--insights)  
 6. [Business Impact & Decision Support](#business-impact--decision-support)  
 7. [How to Use This Project](#how-to-use-this-project)  
-   - [Power BI Report](#power-bi-report)  
-   - [Using Cleaned Data](#using-cleaned-data)  
 8. [Future Work & Improvements](#future-work--improvements)  
 9. [References](#references)  
 
 ---
 
 ## Introduction
-This report focuses on analyzing the sales data of **Threads Ltd**, a company operating through a network of retailers and chain stores across the country. The goal is to identify sales patterns, evaluate the performance of various sales channels, and recommend strategies for enhancing overall profitability.
+The **Threads Ltd Sales Report** evaluates transaction data from multiple retailers and chain stores to:
+
+- Identify year‑over‑year sales trends  
+- Benchmark channel and product performance  
+- Analyze profitability and cost structures  
+- Support strategic planning with actionable insights  
 
 ---
 
 ## Dataset Overview
-The dataset provides valuable insights into:
-- **Sales performance**
-- **Profitability trends**
-- **Market dynamics**
+The analysis draws on four core tables:
 
-**Tables Included**:
-- **Orders Table**: Contains sales data, including total sales and cost of goods sold (COGS).
-- **Returns Table**: Lists returned products.
-- **Products Table**: Provides detailed information on each product type.
-- **Retailers Table**: Offers insights into the retailers placing orders.
+| Table            | Key Columns                                                                                 |
+|------------------|---------------------------------------------------------------------------------------------|
+| **Orders**       | `order_id`, `order_date`, `retailer_id`, `product_sku`, `quantity`, `sales_amount`, `profit` |
+| **Returns**      | `order_id`, `return_date`                                                                   |
+| **Products**     | `product_sku`, `category`, `description`, `size`, `color`                                   |
+| **Retailers**    | `retailer_id`, `channel`, `name`, `city`, `region`, `country`                               |
 
 ---
 
 ## Data Preparation
 
-### Loading and Cleaning Data
-- Imported the dataset into **Power BI Desktop**.
-- Inspected each table and removed duplicates, outliers, and errors.
-- Standardized data types and renamed tables for clarity.
-- Designated the **Orders Table** as the primary fact table.
+### Loading & Cleaning Data
+- Imported source tables into **Power BI Desktop**.  
+- Removed duplicates, nulls, and obvious data errors.  
+- Standardized data types (dates, numeric fields) and renamed columns for clarity.
 
-### Creating a Dimension Date Table
-- Developed a **dimension date table** to leverage **time intelligence functions** in DAX.
-- Ensured continuous date ranges, even if no transactions occurred on specific days.
+### Dimension Date Table
+- Created a dedicated **Date** dimension to leverage DAX time‑intelligence functions (e.g., YTD, YoY).  
+- Ensured complete date coverage—even on days without transactions.
 
 ### Data Model Relationships
-- Established robust relationships among tables to create a cohesive data model.
+- Established one‑to‑many relationships between **Orders** and all dimension tables (Date, Products, Retailers).  
+- Configured return flags and calculated profit measures for accurate aggregations.
 
-> ![Data Model Screenshot](screenshots/data_model.jpg)
+> ![Data Model](screenshots/data_model.jpg)
 
 ---
 
-## Report and Visualization
+## Report & Visualization
 
 ### Overview Page
-- **Key Metrics**: Displays total revenue, total units sold, total profit, profit margin by year, and YoY % Change.
-- **Visualizations**: Includes monthly revenue trends, revenue distribution by country and sales channel, and profitability analysis by product category.
-- **Filters**: Users can filter the sales data by year.
-  
-**Additional Explanation**:  
-The Overview Page provides a high-level summary of the company's overall sales performance. It is designed to give stakeholders an immediate snapshot of how the business is performing, highlighting growth trends and potential areas for further analysis. This page is ideal for executive review and strategic planning.
+- **KPIs**: Total Sales, Units Sold, Profit Margin, Year‑over‑Year % Change  
+- **Visuals**:  
+  - Line chart showing sales trends (2018–2021)  
+  - Card visuals for key metrics  
+  - Pie chart of sales by country  
+- **Filter**: Year selector  
+- **Purpose**: Provides an at‑a‑glance summary of overall performance and trend direction.
 
-> ![Overview Screenshot](screenshots/overview_page.jpg)  
-> ![Year Filter Screenshot](screenshots/filter_year.jpg)
+> ![Overview](screenshots/overview_page.jpg)
+
+---
 
 ### Product Page
-- **Product Insights**: Displays key metrics such as total sales, units sold, cost, profit, profit margin, and YoY % Change by product category.
-- **Filtering Options**: Enables users to drill down into specific product categories to analyze performance in detail.
+- **Metrics**:  
+  - Total Sales, Units Sold, Profit Margin by Category  
+  - YoY % Change for each product line  
+- **Visuals**:  
+  - Bar chart of sales by category  
+  - Trend line of annual sales  
+  - Detail tables for size and color performance  
+- **Filters**: Year, Gender, Category, Color  
+- **Purpose**: Highlights top‑performing products and identifies categories needing targeted investment.
 
-**Additional Explanation**:  
-The Product Page offers detailed insights into the performance of individual product categories. This page helps identify which products are driving revenue and profitability and which may require additional marketing or operational adjustments. It is particularly useful for product managers and marketing teams who need to understand product-level dynamics.
+> ![Product](screenshots/product_page.jpg)
 
-> ![Product Screenshot](screenshots/product_page.jpg)
+---
 
 ### Channel Page
-- **Sales Performance by Geography**: Presents sales data segmented by country, region, and city.
-- **Sales by Channel**: Breaks down sales across various channels (e.g., Online, Retail, Wholesale) with interactive filtering options.
-- **Detailed Breakdown**: Includes tables and charts that allow users to view performance by specific channels and geographic areas.
+- **Metrics**:  
+  - Total Sales & Units Sold with YoY comparison  
+- **Visuals**:
+  - Trend line of annual sales    
+  - Donut charts for country & retailer channel breakdown  
+  - Tables listing top‑performing retailer and growth rates  
+- **Filters**: Year, Country, Channel, City  
+- **Purpose**: Enables deep‑dive into geographic and channel performance—guiding market expansion and resource allocation.
 
-**Additional Explanation**:  
-The Channel Page is designed to assess the effectiveness of different sales channels and geographic regions. By analyzing this data, decision-makers can pinpoint which channels and regions are most profitable and where there may be opportunities for growth or improvement. This page supports targeted marketing strategies and optimized distribution planning.
-
-> ![Channel Screenshot](screenshots/channel_page.jpg)
+> ![Channel](screenshots/channel_page.jpg)
 
 ---
 
 ## Key Findings & Insights
-- **Top-Selling Products & Categories**: Identification of best-performing products and highly profitable categories.
-- **Channel Effectiveness**: Analysis of which sales channels yield the highest returns.
-- **Impact of Returns**: Evaluation of how product returns affect overall profitability.
-- **Descriptive Statistics**: Preliminary analysis shows average monthly sales and variability, indicating market volatility that may impact inventory and pricing strategies.
-
-*Interpretation*:  
-- The data suggests that certain regions and product categories outperform others, guiding targeted marketing efforts.
-- High return rates in specific channels indicate potential quality or service issues that warrant further investigation.
+- **Sales Trend**: After a dip in 2020, 2021 sales rebounded +4.75% to \$1.77M.  
+- **Top Products**: Hoodies & Sweatshirts lead sales (\$526K, +11.3% YoY).  
+- **Channel Leaders**: Franchises generate 36% of revenue; local stores at 25%.  
+- **Geographic Hotspots**: England accounts for 89% of sales; Scotland and Wales together 11%.  
+- **Profit Drivers**: High-margin products (Bras & Tops) show 17% YoY growth despite lower volumes.
 
 ---
 
 ## Business Impact & Decision Support
-This report is designed not only to provide a detailed analysis of sales data but also to serve as a strategic tool for business decision-makers. Here’s how it benefits various stakeholders:
+This dashboard equips leadership with:
 
-- **Executive Overview**:  
-  The report presents clear, high-level metrics (such as total revenue, profit margins, and YoY growth) that allow executives to quickly grasp the overall business performance and financial health.
-
-- **Strategic Channel Evaluation**:  
-  With detailed insights from the Channel Page, decision-makers can assess which sales channels (e.g., online, retail) are most effective, enabling them to allocate resources and adjust strategies for maximum impact.
-
-- **Product Performance Analysis**:  
-  The Product Page offers granular insights into individual product categories. This information is critical for identifying top-performing products and determining areas that require strategic adjustments, such as inventory management or marketing focus.
-
-- **Data-Driven Marketing Decisions**:  
-  By highlighting key trends and regional performance metrics, the report guides marketing managers in targeting high-potential markets and optimizing promotional efforts based on solid data.
-
-- **Cost Management and Profitability**:  
-  The evaluation of returns and overall profitability helps in identifying cost inefficiencies and optimizing pricing or production strategies, ensuring that investments are directed toward the most profitable segments.
-
-- **Forecasting and Long-Term Planning**:  
-  The descriptive statistics and trend analyses provide a foundation for predictive analytics, assisting in forecasting future sales, managing inventory, and planning long-term business strategies.
-
-Overall, this report equips business leaders with the actionable insights needed to drive strategic decisions, optimize operations, and improve overall business performance.
-
+- **Executive Summary**: Quick visibility into financial health and growth trends.  
+- **Product Strategy**: Data‑backed identification of high‑margin categories for promotional focus.  
+- **Channel Optimization**: Insights to reallocate budgets toward fastest‑growing channels and regions.  
+- **Operational Efficiencies**: ROI analysis on store formats to inform network expansion or consolidation.  
 
 ---
 
 ## How to Use This Project
 
 ### Power BI Report
-1. Download the `threads_ltd_sales_report.pbix` file.
-2. Open it using **Power BI Desktop**.
-3. Interact with the dashboards to explore sales trends and performance metrics.
+1. Download `threads_ltd_sales_report.pbix`.  
+2. Open in **Power BI Desktop**.  
+3. Use the navigation tabs and slicers (Year, Category, Country) to filter views.
 
-### Using Cleaned Data
-- The cleaned data files (`factorders_clean.csv`, `dimreturns_clean.csv`, `dimretailers_clean.csv`, `dimproducts_clean.csv`, `dimdate_clean.csv`) can be imported into **Python**, **R**, or **SQL** for further analysis.
+### Access Cleaned Data
+- CSV exports (`orders_clean.csv`, `products_clean.csv`, etc.) are available for advanced analysis in SQL, Python, or R.
 
 ---
 
 ## Future Work & Improvements
-- **Dataset Expansion**: Incorporate additional data such as customer demographics or market trends.
-- **Predictive Analytics**: Develop machine learning models to forecast future sales and inventory needs.
-- **Customer Sentiment Analysis**: Evaluate customer satisfaction through sentiment analysis to refine sales strategies.
+- **Real‑Time Data**: Integrate live sales feeds via Azure Data Factory.  
+- **Predictive Analytics**: Implement forecasting models for next‑quarter sales projections.  
+- **Enhanced UX**: Add drill‑through pages and mobile‑optimized layouts.  
 
 ---
 
 ## References
-- [DataCamp Dataset](https://www.datacamp.com)  
-- Research papers on **sales analytics**, **market trends**, and **retail strategies**.
+- **Dataset**: Internal Threads Ltd sales & returns data  
+- **Methodology**: Power BI best practices, Contoso DW case studies  
+- **Tools**: Power Query, DAX, Azure Data Services  
