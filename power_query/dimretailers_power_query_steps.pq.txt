@@ -1,0 +1,7 @@
+let
+    Source = Excel.Workbook(File.Contents("D:\งาน\Datacamp\Learn\Power BI\My Work\Threads Ltd - Sales Report\data\raw_data\retailers_raw.xlsx"), null, true),
+    Retailers_Sheet = Source{[Item="Retailers",Kind="Sheet"]}[Data],
+    #"Promoted Headers" = Table.PromoteHeaders(Retailers_Sheet, [PromoteAllScalars=true]),
+    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"Retailer_ID", Int64.Type}, {"Retailer_Channel", type text}, {"Retailer_Name", type text}, {"City", type text}, {"Region", type text}, {"Area", type text}, {"Country", type text}, {"Distance_from_Warehouse", Int64.Type}})
+in
+    #"Changed Type"

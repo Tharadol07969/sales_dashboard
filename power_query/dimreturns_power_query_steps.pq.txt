@@ -1,0 +1,7 @@
+let
+    Source = Excel.Workbook(File.Contents("D:\งาน\Datacamp\Learn\Power BI\My Work\Threads Ltd - Sales Report\data\raw_data\returns_raw.xlsx"), null, true),
+    Returns_Sheet = Source{[Item="Returns",Kind="Sheet"]}[Data],
+    #"Promoted Headers" = Table.PromoteHeaders(Returns_Sheet, [PromoteAllScalars=true]),
+    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"Order_ID", Int64.Type}, {"Return_year", Int64.Type}, {"Return_Month", Int64.Type}, {"Return_day", Int64.Type}, {"Hour", Int64.Type}, {"Minute", Int64.Type}, {"Second", Int64.Type}, {"Return_Date", type date}})
+in
+    #"Changed Type"
