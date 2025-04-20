@@ -148,5 +148,5 @@ This dashboard equips leadership with:
 
 ## References
 - **Dataset**: Internal Threads Ltd sales & returns data  
-- **Methodology**: Power BI best practices, Contoso DW case studies  
-- **Tools**: Power Query, DAX, Azure Data Services  
+- **Methodology**: Power BI best practices 
+- **Tools**: Power Query, DAX
