@@ -4,6 +4,9 @@ This **Power BI** dashboard delivers an end‑to‑end analysis of **Threads Ltd
 
 ---
 
+### Project Architecture:
+> ![Project Architecture](screenshots/project_architecture.jpg)
+
 ## 📌 Table of Contents
 1. [Introduction](#introduction)  
 2. [Dataset Overview](#dataset-overview)  
